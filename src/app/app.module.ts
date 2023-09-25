@@ -5,22 +5,32 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { CartComponent } from './cart/cart.component';
-
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
+
+import { CartComponent } from './cart/cart.component';
+import { HomeComponent } from './home/home.component';
+import { CategoryFilterComponent } from './category-filter/category-filter.component';
+import { ProductBoxComponent } from './product-box/product-box.component';
+import { ProductsHeaderComponent } from './products-header/products-header.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CartComponent
+    CartComponent,
+    HomeComponent,
+    CategoryFilterComponent,
+    ProductBoxComponent,
+    ProductsHeaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    CoreModule,           // Singleton objects (services, components that are loaded only once, etc.)
-    SharedModule          // Shared (multi-instance) objects
+    CoreModule,         // Singleton objects (services, components that are loaded only once, etc.)
+    SharedModule,      // Shared (multi-instance) objects    
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
