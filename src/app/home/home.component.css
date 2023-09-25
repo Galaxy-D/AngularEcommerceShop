@@ -1,0 +1,13 @@
+mat-drawer-container, mat-drawer {
+  background-color:#212121;
+}
+app-products-header {
+  flex-grow: 1;
+}
+
+mat-drawer-container div {
+  align-items: baseline;
+}
+.products-body {
+  width: 100%;
+}
