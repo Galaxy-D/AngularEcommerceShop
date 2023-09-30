@@ -14,10 +14,12 @@ import { CategoryFilterComponent } from './category-filter/category-filter.compo
 import { ProductBoxComponent } from './product-box/product-box.component';
 import { ProductsHeaderComponent } from './products-header/products-header.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
     CartComponent,
     HomeComponent,
     CategoryFilterComponent,
