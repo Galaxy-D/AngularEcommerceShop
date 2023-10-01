@@ -4,7 +4,7 @@ import { Cart, CartItem } from 'src/app/shared/model/cart.model';
 import { CartService } from 'src/app/cart/cart.service';
 import { loadStripe } from '@stripe/stripe-js';
 import { Subscription } from 'rxjs';
-import { environment } from "src/environments/environment";
+import { environment } from "src/environments/environment.development";
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -59,7 +59,7 @@ export class CartComponent implements OnInit, OnDestroy {
         items: this.cart.items,
       })
       .subscribe(async (res: any) => {
-        
+
         let stripe = await loadStripe(environment?.STRIPE_PUBLIC_KEY);
         stripe?.redirectToCheckout({
           sessionId: res.id,
