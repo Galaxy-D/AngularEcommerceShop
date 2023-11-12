@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "npm run config && ng serve",
+    "start": "npm run config && node server/server.js",
     "build": "npm run config && ng build",
     "config": "ts-node src/environments/set-env.ts",
     "watch": "ng build --watch --configuration development",

@@ -5,11 +5,13 @@ const dotenv = require('dotenv');
 
 const app = express();
 app.use(express.static("public"));
+app.use(express.static('dist/angular-ecommerce-shop'));
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());
+
 app.use(cors({ origin: true, credentials: true }));
 
-dotenv.config({ path: '../.env' });
+dotenv.config({ path: '.env' });
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
@@ -86,7 +88,17 @@ app.post("/checkout", async (req, res, next) => {
     } catch (error) {
         next(error);
     }
-    
+
+});
+
+app.all('/*', function(req, res) {
+  res.sendFile('dist/angular-ecommerce-shop/index.html', { root: __dirname });
+});
+
+var opn = require('opn');
+
+opn('http://localhost:4242').then(() => {
+  console.log('Browser closed.');
 });
 
 app.listen(4242, () => console.log('app is running on 4242'));
