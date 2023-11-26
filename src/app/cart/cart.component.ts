@@ -55,7 +55,10 @@ export class CartComponent implements OnInit, OnDestroy {
 
   onCheckout(): void {
     try {
-      this.http.post('http://localhost:4242/checkout', {
+      this.http.post('https://angularecommerceapp-backend.onrender.com/checkout', {
+        headers: {
+          'Authorization': `Bearer ${process.env['STRIPE_SECRET_KEY']}`,
+        },
         items: this.cart.items,
       })
       .subscribe(async (res: any) => {
