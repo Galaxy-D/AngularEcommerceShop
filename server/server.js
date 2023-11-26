@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const bodyparser = require("body-parser");
 const dotenv = require('dotenv');
-
+const port = process.env.PORT || 8080;
 const app = express();
 app.use(express.static("public"));
 app.use(express.static('dist/angular-ecommerce-shop'));
@@ -81,8 +81,8 @@ app.post("/checkout", async (req, res, next) => {
             quantity: item.quantity
           })),
           mode: "payment",
-          success_url: "http://localhost:4242/success.html",
-          cancel_url: "http://localhost:4242/cancel.html",
+          success_url: `https://angularecommerceapp.netlify.app/success.html`,
+          cancel_url: `https://angularecommerceapp.netlify.app/cancel.html`,
         });
         res.status(200).json(session);
     } catch (error) {
@@ -97,8 +97,8 @@ app.all('/*', function(req, res) {
 
 var opn = require('opn');
 
-opn('http://localhost:4242').then(() => {
+opn(`https://angularecommerceapp.netlify.app`).then(() => {
   console.log('Browser closed.');
 });
 
-app.listen(4242, () => console.log('app is running on 4242'));
+app.listen(port, () => console.log(`app is running on ${port}`));
