@@ -110,7 +110,7 @@
               "browserTarget": "AngularEcommerceShop:build:development"
             },
             "staging": {
-              "browserTarget": "your-project-name:build:staging"
+              "browserTarget": "AngularEcommerceShop:build:staging"
             }
           },
           "defaultConfiguration": "development"

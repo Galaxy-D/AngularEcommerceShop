@@ -2,17 +2,20 @@ const setEnv = () => {
   const fs = require('fs');
   const writeFile = fs.writeFile;
   const dotenv = require('dotenv');
-// Configure Angular `environment.ts` file path
+  // Configure Angular `environment.ts` file path
   const devFilePath = './src/environments/environment.development.ts';
   const prodFilePath = './src/environments/environment.prod.ts';
-// Load node modules
+  // Load node modules
   dotenv.config({
     path: '.env'
   });
-// `environment.ts` file structure
+
+  // `environment.ts` file structure
   const prodFile = `export const environment = {
     STRIPE_PUBLIC_KEY: '${process.env["STRIPE_PUBLIC_KEY"]}',
     STRIPE_SECRET_KEY: '${process.env["STRIPE_SECRET_KEY"]}',
+    baseURL:'${process.env["baseURL"]}',
+    PORT:${process.env["PORT"]},
     production: true,
     };
   `;
@@ -20,6 +23,8 @@ const setEnv = () => {
   const devFile = `export const environment = {
     STRIPE_PUBLIC_KEY: '${process.env["STRIPE_PUBLIC_KEY"]}',
     STRIPE_SECRET_KEY: '${process.env["STRIPE_SECRET_KEY"]}',
+    baseURL:'${process.env["baseURL"]}',
+    PORT:${process.env["PORT"]},
     production: false,
     };
   `;
