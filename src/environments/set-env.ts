@@ -14,7 +14,8 @@ const setEnv = () => {
   const prodFile = `export const environment = {
     STRIPE_PUBLIC_KEY: '${process.env["STRIPE_PUBLIC_KEY"]}',
     STRIPE_SECRET_KEY: '${process.env["STRIPE_SECRET_KEY"]}',
-    baseURL:'${process.env["baseURL"]}',
+    SERVER_URL:'${process.env["SERVER_URL"]}',
+    CLIENT_URL:'${process.env["CLIENT_URL"]}',
     PORT:${process.env["PORT"]},
     production: true,
     };
@@ -23,7 +24,8 @@ const setEnv = () => {
   const devFile = `export const environment = {
     STRIPE_PUBLIC_KEY: '${process.env["STRIPE_PUBLIC_KEY"]}',
     STRIPE_SECRET_KEY: '${process.env["STRIPE_SECRET_KEY"]}',
-    baseURL:'${process.env["baseURL"]}',
+    SERVER_URL:'${process.env["SERVER_URL"]}',
+    CLIENT_URL:'${process.env["CLIENT_URL"]}',
     PORT:${process.env["PORT"]},
     production: false,
     };
