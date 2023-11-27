@@ -55,6 +55,7 @@ export class CartComponent implements OnInit, OnDestroy {
 
   onCheckout(): void {
     try {
+      console.log('environment?.STRIPE_PUBLIC_KEY ===> ', environment?.STRIPE_PUBLIC_KEY)
       this.http.post('https://angularecommerceapp-backend.onrender.com/checkout', {
         items: this.cart.items,
       })

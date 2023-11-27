@@ -90,8 +90,8 @@ app.post("/checkout", async (req, res, next) => {
             quantity: item.quantity
           })),
           mode: "payment",
-          success_url: `https://angularecommerceapp.netlify.app/success.html`,
-          cancel_url: `https://angularecommerceapp.netlify.app/cancel.html`,
+          success_url: `https://angularecommerceapp-backend.onrender.com/success.html`,
+          cancel_url: `https://angularecommerceapp-backend.onrender.com/cancel.html`,
         });
         res.status(200).json(session);
     } catch (error) {
