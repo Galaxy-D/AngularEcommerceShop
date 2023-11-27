@@ -55,12 +55,10 @@ export class CartComponent implements OnInit, OnDestroy {
 
   onCheckout(): void {
     try {
-      console.log('environment?.STRIPE_PUBLIC_KEY ===> ', environment?.STRIPE_PUBLIC_KEY)
-      this.http.post('https://angularecommerceapp-backend.onrender.com/checkout', {
+      this.http.post(`${environment?.SERVER_URL}/checkout`, {
         items: this.cart.items,
       })
       .subscribe(async (res: any) => {
-
         let stripe = await loadStripe(environment?.STRIPE_PUBLIC_KEY);
         stripe?.redirectToCheckout({
           sessionId: res.id,
