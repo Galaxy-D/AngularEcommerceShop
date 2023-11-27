@@ -55,12 +55,9 @@ export class CartComponent implements OnInit, OnDestroy {
 
   onCheckout(): void {
     try {
-      const headers = {
-        'Authorization': `Bearer ${environment?.STRIPE_SECRET_KEY}`,
-      }
       this.http.post('https://angularecommerceapp-backend.onrender.com/checkout', {
         items: this.cart.items,
-      },{headers})
+      })
       .subscribe(async (res: any) => {
 
         let stripe = await loadStripe(environment?.STRIPE_PUBLIC_KEY);
