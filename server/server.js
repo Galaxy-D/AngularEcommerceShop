@@ -5,7 +5,7 @@ const dotenv = require('dotenv');
 const port = process.env.PORT || 8080;
 const app = express();
 app.use(express.static("public"));
-app.use(express.static('dist/angular-ecommerce-shop'));
+app.use(express.static('dist'));
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());
 
@@ -101,7 +101,7 @@ app.post("/checkout", async (req, res, next) => {
 });
 
 app.all('/*', function(req, res) {
-  res.sendFile('dist/angular-ecommerce-shop/index.html', { root: __dirname });
+  res.sendFile('dist/index.html', { root: __dirname });
 });
 
 var opn = require('opn');
